@@ -10,6 +10,10 @@ using Xamarin.Forms;
 
 namespace Lesson1.ViewModels
 {
+   // TODO: code review
+   // don't use MvvmCross with the Xamarin.Forms
+   // to start better investigate possibilities of the one framework
+   // and than learn another one
     class LoginPageViewModel : BaseViewModel
     {
         #region Life Cycle
@@ -24,6 +28,8 @@ namespace Lesson1.ViewModels
         #region Fields
 
         // I don't see any reasons to create model in this case because now we have nothing except of login service.
+      // TODO: code review
+      // use constructor to inject the services into the target object
         private ILoginService loginService = Mvx.Resolve<ILoginService>();
 
         private string username;
@@ -109,6 +115,9 @@ namespace Lesson1.ViewModels
 
         // Currently I do not know how to interact between view models correctly.
         // So to save some time I just created this event.
+      // TODO: code review
+      // subscribtions for events / delegates often lead to memory leaks
+      // use dataContext instead - https://developer.xamarin.com/guides/xamarin-forms/application-fundamentals/navigation/hierarchical/#Passing_Data_through_a_BindingContext
         public event EventHandler ViewModelClose;
 
         protected virtual void OnClose()

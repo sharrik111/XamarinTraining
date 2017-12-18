@@ -9,6 +9,8 @@ namespace Lesson1.Models
 {
     class LoginService : ILoginService
     {
+      // TODO: code review
+      // make this method async and add delay to simulate web request
         public bool TryToLogin(string username, string password)
         {
             if (App.Current.Properties.ContainsKey(username))
