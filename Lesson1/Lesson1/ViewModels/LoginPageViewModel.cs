@@ -30,7 +30,7 @@ namespace Lesson1.ViewModels
         // I don't see any reasons to create model in this case because now we have nothing except of login service.
       // TODO: code review
       // use constructor to inject the services into the target object
-        private ILoginService loginService = Mvx.Resolve<ILoginService>();
+        private ILoginService loginService = DependencyService.Get<ILoginService>();
 
         private string username;
         private string password;

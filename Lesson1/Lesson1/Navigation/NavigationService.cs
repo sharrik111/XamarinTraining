@@ -6,7 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Lesson1.ViewModels;
 using Lesson1.Views;
+using Lesson1.Navigation;
 
+[assembly: Xamarin.Forms.Dependency(typeof(NavigationService))]
 namespace Lesson1.Navigation
 {
     /// <summary>

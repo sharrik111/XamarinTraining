@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AdsHub"
+             xmlns:controls="clr-namespace:AdsHub.Controls"
+             x:Class="AdsHub.MainPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <ScrollView Grid.Row="1">
+                <StackLayout>
+                    <!--Works!-->
+                    <!--<controls:AdBannerView/>-->
+                    <!--Doesn't work =(-->
+                    <controls:AdPageView/>
+                    <!--Doesn't work =(-->
+                    <!--<controls:AdNativeView/>-->
+                    <!--Works!-->
+                    <!--<controls:AdRewardedVideoView/>-->
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

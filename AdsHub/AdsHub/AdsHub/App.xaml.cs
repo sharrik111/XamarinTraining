@@ -1,18 +1,11 @@
-﻿using Lesson1.Models;
-using Lesson1.Models.Interfaces;
-using Lesson1.Navigation;
-using Lesson1.Navigation.Interfaces;
-using Lesson1.ViewModels;
-using MvvmCross.Core.Navigation;
-using MvvmCross.Platform;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
 
-namespace Lesson1
+namespace AdsHub
 {
     public partial class App : Application
     {
@@ -20,14 +13,12 @@ namespace Lesson1
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Lesson1.Views.MainPage());
+            MainPage = new AdsHub.MainPage();
         }
 
         protected override void OnStart()
         {
-            var mainViewModel = new MainPageViewModel();
-            MainPage.BindingContext = mainViewModel;
-            mainViewModel.Init();
+            // Handle when your app starts
         }
 
         protected override void OnSleep()

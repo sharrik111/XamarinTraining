@@ -1,10 +1,12 @@
-﻿using Lesson1.Models.Interfaces;
+﻿using Lesson1.Models;
+using Lesson1.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+[assembly: Xamarin.Forms.Dependency(typeof(LoginService))]
 namespace Lesson1.Models
 {
     class LoginService : ILoginService
