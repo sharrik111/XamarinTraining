@@ -11,7 +11,7 @@ namespace Lesson1.Navigation.Interfaces
     {
         // TODO(Pavel Ostreyko): Ideally the interface must the only method to navigate to specified page.
 
-        void MoveToLoginPage(BaseViewModel viewModel);
+        void MoveToMainPage(BaseViewModel viewModel);
 
         void PopMe();
     }

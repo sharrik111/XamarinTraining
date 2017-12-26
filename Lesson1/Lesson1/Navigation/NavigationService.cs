@@ -17,9 +17,9 @@ namespace Lesson1.Navigation
     /// </summary>
     public class NavigationService : INavigationService
     {
-        public void MoveToLoginPage(BaseViewModel viewModel)
+        public void MoveToMainPage(BaseViewModel viewModel)
         {
-            App.Current.MainPage.Navigation.PushAsync(new LoginPage { BindingContext = viewModel });
+            App.Current.MainPage.Navigation.PushAsync(new MainPage { BindingContext = viewModel });
         }
 
         public void PopMe()

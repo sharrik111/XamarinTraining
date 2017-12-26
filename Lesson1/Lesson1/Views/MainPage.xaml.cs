@@ -12,6 +12,12 @@ namespace Lesson1.Views
         public MainPage()
         {
             InitializeComponent();
+            var label = new Label();
+            label.SetBinding(Label.TextProperty, new Binding("Title"));
+            Content = new StackLayout
+            {
+                Children = { label }
+            };
         }
     }
 }

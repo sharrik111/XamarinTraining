@@ -46,20 +46,13 @@ namespace Lesson1.ViewModels
 
         #region Life Cycle
 
-        public void Init()
+        public MainPageViewModel(string username)
         {
-            var loginViewModel = new LoginPageViewModel();
-            loginViewModel.ViewModelClose += (s, e) =>
-            {
-                Username = loginViewModel.Username;
-                if (IsLoggedIn)
-                    Title = $"You're logged in with name '{Username}'";
-            };
-            if (!IsLoggedIn)
-            {
+            Username = username;
+            if(IsLoggedIn)
+                Title = $"You're logged in with name '{Username}'";
+            else
                 Title = "You are still not logged in.";
-                navigationService.MoveToLoginPage(loginViewModel);
-            }
         }
 
         #endregion

@@ -20,14 +20,13 @@ namespace Lesson1
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Lesson1.Views.MainPage());
+            MainPage = new NavigationPage(new Lesson1.Views.LoginPage());
         }
 
         protected override void OnStart()
         {
-            var mainViewModel = new MainPageViewModel();
-            MainPage.BindingContext = mainViewModel;
-            mainViewModel.Init();
+            var loginViewModel = new LoginPageViewModel(DependencyService.Get<ILoginService>());
+            MainPage.BindingContext = loginViewModel;
         }
 
         protected override void OnSleep()
