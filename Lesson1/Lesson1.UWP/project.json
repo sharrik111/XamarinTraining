@@ -1,7 +1,11 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.5",
-    "Xamarin.Forms": "2.4.0.91020"
+    "sqlite-net-pcl": "1.4.118",
+    "Xam.Plugin.Geolocator": "4.2.0",
+    "Xamarin.Auth": "1.5.0.3",
+    "Xamarin.Forms": "2.4.0.91020",
+    "Xamarin.Forms.Maps": "2.4.0.280"
   },
   "frameworks": {
     "uap10.0.10586": {}

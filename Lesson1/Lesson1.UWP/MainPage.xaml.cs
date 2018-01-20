@@ -22,6 +22,7 @@ namespace Lesson1.UWP
             this.InitializeComponent();
 
             LoadApplication(new Lesson1.App());
+            // Xamarin.FormsMaps.Init("Authentication token must be set here.");
         }
     }
 }

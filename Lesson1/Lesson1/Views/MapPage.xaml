@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:behaviors="clr-namespace:Lesson1.Behaviors"
+             xmlns:helpersBehaviors="clr-namespace:XamarinFormsHelper.Behaviors;assembly=XamarinFormsHelper"
+             x:Class="Lesson1.Views.MapPage"
+             Title="Map">
+    <ContentPage.Behaviors>
+        <helpersBehaviors:EventToCommandBehavior EventName="Appearing"
+                                                 Command="{Binding AppearingCommand}"/>
+    </ContentPage.Behaviors>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <maps:Map
+                 IsShowingUser="True"
+                 MapType="{Binding MapType}"
+                 Margin="0,0,0,10">
+                <maps:Map.Behaviors>
+                    <behaviors:MapBehavior Pins="{Binding Pins}"
+                                           VisibleRegion="{Binding MapCenterSpan}"/>
+                </maps:Map.Behaviors>
+            </maps:Map>
+            <StackLayout Orientation="Horizontal"
+                         Grid.Row="1">
+                <Switch IsToggled="{Binding MapTypeToggleValue}"
+                        Margin="0,0,10,0"/>
+                <Label Text="{Binding DistanceToIsSoft, StringFormat='Distance to ISSoft: {0} Km'}"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

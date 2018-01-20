@@ -1,58 +1,45 @@
-﻿using System;
+﻿using Lesson1.Models.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XamarinFormsHelper.ViewModels;
 
 namespace Lesson1.ViewModels
 {
     /// <summary>
     /// View model for main page.
     /// </summary>
-    class MainPageViewModel : BaseViewModel
+    class MainPageViewModel : PageViewModel
     {
         #region Fields
 
-        private string username;
-        private string title;
+        private BaseViewModel generalInfoPageViewModel = null;
 
         #endregion
 
         #region Properties
 
-        public string Username
+        public BaseViewModel GeneralInfoPageViewModel
         {
-            get => username;
+            get => generalInfoPageViewModel;
             set
             {
-                username = value;
-                RaisePropertyChanged();
+                generalInfoPageViewModel = value;
+                OnPropertyChanged();
             }
         }
 
-        public string Title
-        {
-            get => title;
-            set
-            {
-                title = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        private bool IsLoggedIn => !string.IsNullOrEmpty(Username);
+        public MapPageViewModel MapPageViewModel { get; set; } = new MapPageViewModel();
 
         #endregion
 
         #region Life Cycle
 
-        public MainPageViewModel(string username)
+        public MainPageViewModel(IUserModel userModel)
         {
-            Username = username;
-            if(IsLoggedIn)
-                Title = $"You're logged in with name '{Username}'";
-            else
-                Title = "You are still not logged in.";
+            GeneralInfoPageViewModel = new GeneralInfoPageViewModel(userModel);
         }
 
         #endregion

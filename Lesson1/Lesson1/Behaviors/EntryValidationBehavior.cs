@@ -28,7 +28,7 @@ namespace Lesson1.Behaviors
         private void TextChanged(object sender, TextChangedEventArgs e)
         {
             Entry entry = (Entry)sender;
-            if (!Validation.ValidationService.ValidateEmail(entry.Text))
+            if (!Helpers.ValidationHelper.ValidateEmail(entry.Text))
                 entry.TextColor = Color.Red;
             else
                 entry.TextColor = recentColor;

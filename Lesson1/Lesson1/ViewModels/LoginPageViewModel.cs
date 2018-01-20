@@ -1,5 +1,5 @@
-﻿using Lesson1.Models.Interfaces;
-using MvvmCross.Platform;
+﻿using Lesson1.Models;
+using Lesson1.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XamarinFormsHelper.ViewModels;
 
 namespace Lesson1.ViewModels
 {
-    class LoginPageViewModel : BaseViewModel
+    class LoginPageViewModel : PageViewModel
     {
         #region Life Cycle
 
@@ -41,7 +42,7 @@ namespace Lesson1.ViewModels
             {
                 username = value;
                 CredentialsChanged();
-                RaisePropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -52,7 +53,7 @@ namespace Lesson1.ViewModels
             {
                 password = value;
                 CredentialsChanged();
-                RaisePropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -62,8 +63,8 @@ namespace Lesson1.ViewModels
             set
             {
                 error = value;
-                RaisePropertyChanged(nameof(IsErrorVisible));
-                RaisePropertyChanged();
+                OnPropertyChanged(nameof(IsErrorVisible));
+                OnPropertyChanged();
             }
         }
 
@@ -79,12 +80,12 @@ namespace Lesson1.ViewModels
 
         #region Methods
 
-        private void Login()
+        private async void Login()
         {
             Error = string.Empty;
-            if(loginService.TryToLogin(Username, Password))
+            if(await loginService.TryToLoginAsync(Username, Password))
             {
-                navigationService.MoveToMainPage(new MainPageViewModel(Username));
+                await NavigationService.PushAsync(new MainPageViewModel(new UserModel(Username)));
             }
             else
             {
@@ -94,7 +95,7 @@ namespace Lesson1.ViewModels
 
         private bool IsAbleToPushLogin()
         {
-            return !string.IsNullOrEmpty(Password) && !string.IsNullOrEmpty(Username) && Validation.ValidationService.ValidateEmail(Username);
+            return !string.IsNullOrEmpty(Password) && !string.IsNullOrEmpty(Username) && Helpers.ValidationHelper.ValidateEmail(Username);
         }
 
         protected virtual void CredentialsChanged()

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lesson1.Models.Interfaces
 {
-    public interface ILoginService
+    public interface IFileHelper
     {
-        Task<bool> TryToLoginAsync(string username, string password);
+        string GetLocalFilePath(string filename);
     }
 }

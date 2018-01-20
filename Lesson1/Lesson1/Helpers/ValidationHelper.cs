@@ -5,12 +5,12 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Lesson1.Validation
+namespace Lesson1.Helpers
 {
     /// <summary>
     /// Validation service to perform the simplest validations.
     /// </summary>
-    public static class ValidationService
+    public static class ValidationHelper
     {
         public static bool ValidateEmail(string email)
         {

@@ -1,20 +1,19 @@
-﻿using Lesson1.Models;
-using Lesson1.Models.Interfaces;
+﻿using Lesson1.Models.Interfaces;
+using Lesson1.Models.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-[assembly: Xamarin.Forms.Dependency(typeof(LoginService))]
-namespace Lesson1.Models
+[assembly: Xamarin.Forms.Dependency(typeof(ApplicationLoginService))]
+namespace Lesson1.Models.Login
 {
-    class LoginService : ILoginService
+    class ApplicationLoginService : ILoginService
     {
-      // TODO: code review
-      // make this method async and add delay to simulate web request
-        public bool TryToLogin(string username, string password)
+        public async Task<bool> TryToLoginAsync(string username, string password)
         {
+            await Task.Delay(3000);
             if (App.Current.Properties.ContainsKey(username))
             {
                 return password == App.Current.Properties[username].ToString();
@@ -22,7 +21,7 @@ namespace Lesson1.Models
             else
             {
                 App.Current.Properties[username] = password;
-                App.Current.SavePropertiesAsync();
+                await App.Current.SavePropertiesAsync();
                 return true;
             }
         }

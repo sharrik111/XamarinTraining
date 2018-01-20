@@ -11,11 +11,11 @@ namespace PCLTests
         [Test]
         public void LoginTryTest()
         {
-            ILoginService service = new LoginService();
-            service.TryToLogin("pavel", "123");
+            ILoginService service = new ApplicationLoginService();
+            service.TryToLoginAsync("pavel", "123");
 
-            Assert.False(service.TryToLogin("pavel", "12"), "Login must be failed.");
-            Assert.True(service.TryToLogin("pavel", "123"));
+            Assert.False(service.TryToLoginAsync("pavel", "12").Result, "Login must be failed.");
+            Assert.True(service.TryToLoginAsync("pavel", "123").Result);
         }
     }
 }

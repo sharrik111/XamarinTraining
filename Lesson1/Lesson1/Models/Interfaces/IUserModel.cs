@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Lesson1.Models.Interfaces
 {
-    public interface ILoginService
+    // Just to resolve through DependencyService.
+    public interface IUserModel
     {
-        Task<bool> TryToLoginAsync(string username, string password);
+        string Username { get; }
+
+        bool IsLoggedIn { get; }
     }
 }

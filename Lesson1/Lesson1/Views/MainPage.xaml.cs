@@ -7,17 +7,17 @@ using Xamarin.Forms;
 
 namespace Lesson1.Views
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : TabbedPage
     {
         public MainPage()
         {
             InitializeComponent();
-            var label = new Label();
-            label.SetBinding(Label.TextProperty, new Binding("Title"));
-            Content = new StackLayout
-            {
-                Children = { label }
-            };
+            //var label = new Label();
+            //label.SetBinding(Label.TextProperty, new Binding("Title"));
+            //Content = new StackLayout
+            //{
+            //    Children = { label }
+            //};
         }
     }
 }
